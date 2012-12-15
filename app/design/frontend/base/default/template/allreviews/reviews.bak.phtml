@@ -1,0 +1,53 @@
+<?php
+$_reviews = $this->getAllReviews();
+
+$i=0;
+foreach($_reviews as $review):
+	
+	$datetime = strtotime($review->getCreatedAt());
+	$reviewDate = date("m/d/y", $datetime);
+	
+	$_product = Mage::getModel('catalog/product')->load($review->getData('entity_pk_value'));	
+	
+	$cumulativeRating = 0;
+	$j=0;
+	foreach( $review->getRatingVotes() as $vote ) {
+		$cumulativeRating +=$vote->getPercent();
+		$j++;
+	}
+	
+	$finalPercentage = 0;
+	if ($cumulativeRating != 0){
+		$finalPercentage = ($cumulativeRating/$j);
+	}
+	
+	
+?>	
+
+	<div class="grid_12 alpha">
+		<div class="individual-review">
+		<div class="individual-review even">
+				<div class="review-heading">
+	                 <div class="rating-box">
+	                 	<div style="width:<?php echo ceil($finalPercentage); ?>%;" class="rating"></div>
+	                 </div>
+	                        	                                	
+	                <strong><?php echo $review->getTitle(); ?></strong> by <em><?php echo $review->getNickname(); ?></em><small class="date"> on <?php echo $reviewDate?></small><br>
+
+	            </div>
+	            <div class="review-body">
+		
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(80); ?>" width="80" height="80" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+		
+	                <p><?php echo $review->getDetail(); ?></p>
+	
+					<p><?php #echo $cumulativeRating; ?></p>
+                
+	            </div>
+	    	</div>
+		</div>
+	</div>
+	
+<?php endforeach; ?>
+
+<div><?php echo $this->getModuleCredit(); ?></div>

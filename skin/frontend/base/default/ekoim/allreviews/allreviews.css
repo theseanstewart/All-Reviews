@@ -1,0 +1,33 @@
+#all-reviews .rich-snippet-markup{ display: none; }
+
+#all-reviews-table .clear{ clear: both; }
+#all-reviews-table td{ border-bottom: 1px dashed #E2E2E2; padding: 10px; border-left: 1px dashed #E2E2E2;}
+#all-reviews-table td.first{ border-left: none !important; }
+
+#all-reviews-table .review-body a.product-image{ float: left; padding-right: 15px; }
+#all-reviews-table .review-body p{ padding-top: 10px; }
+#all-reviews-table .review-heading{ padding-bottom: 10px; }
+
+#all-reviews-table  .rating-box{ float: left; margin-right: 10px; }
+
+#all-reviews-table  .individual-review{ padding: 12px; border-bottom: 1px solid #F2F2F2; }	
+	
+#all-reviews-table  .odd{ background: #faf9f9; }
+
+#all-reviews-table  div.review-heading{ color: #777; margin-bottom: 5px; }
+#all-reviews-table  div.review-heading strong{ color: #000 }
+
+#all-reviews-table  div.review-body p{ margin: 0px; }
+
+#all-reviews-table  div.form-add{ margin-top: 12px; }
+
+#all-reviews-table .box-review-form h3{ font-size: 14px; font-weight: normal;}
+
+#all-reviews-table .box-review-form h4{ font-size: 12px; display: none; }
+
+#all-reviews-table .box-review-form .form-add .data-table{ margin: 15px 0px; }
+
+.all-reviews-summary{ border-bottom: 1px dashed #E2E2E2; margin-bottom: 15px; }	
+.all-reviews-summary p{ text-align: center; padding-top: 5px;  }	
+.all-reviews-stars{ height: 50px; width: 262px; background: url(5-stars-empty.png) no-repeat; margin: 0 auto; }	
+.all-reviews-stars span{ display: block; height: 50px; background: url(5-stars-full.png) no-repeat; }

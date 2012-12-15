@@ -1,0 +1,78 @@
+
+<?php $_reviews = $this->getAllReviews(); ?>
+<?php $numberOfColumns = $_reviews['settings']['number_of_columns']; ?>
+<?php $columnWidthPercentage = round(100 / $numberOfColumns )?>
+<?php $i=0; ?>
+
+<div id="all-reviews">
+
+	<?php if($_reviews['settings']['enable_totals'] == "1"):?>
+	<div class="all-reviews-summary">
+		<div class="all-reviews-stars">
+			<span style="width: <?php echo $_reviews['totals']['total_percentage']; ?>%"></span>
+		</div>
+		<div class="all-reviews-summary-text">
+			<p>Rated <?php echo $_reviews['totals']['total_of_five']; ?> out of 5 stars. Based on <?php echo $_reviews['totals']['total_reviews']; ?> Reviews</p>
+		</div>
+	</div>
+	<?php endif; ?>
+
+	<table width="100%" id="all-reviews-table" cellspacing="10">
+	<?php foreach($_reviews['reviews'] as $review):?>
+	
+		<?php if($i % $numberOfColumns == 0):?>
+			<tr>
+		<?php endif; ?>
+	
+			<td width="<?php echo $columnWidthPercentage; ?>%" class="<?php if($i % $numberOfColumns == 0):?>first<?php endif; ?> <?php if($i+1 % $numberOfColumns == 0):?>last<?php endif; ?>">
+				<div class="review-heading">
+                
+					<?php if($_reviews['settings']['enable_review_stars'] == "1"):?>
+					<div class="rating-box">
+		            	<div style="width:<?php echo ceil($review['review_percentage']); ?>%;" class="rating"></div>
+		            </div>
+					<?php endif; ?>
+				
+					<?php if($_reviews['settings']['enable_review_title'] == "1"):?>
+				    	<strong><?php echo $review['review_title'] ?></strong>
+					<?php endif; ?>
+				
+					<?php if($_reviews['settings']['enable_review_nickname'] == "1"):?>
+						by <em><?php echo $review['review_nickname'] ?></em>
+					<?php endif; ?>
+				
+					<?php if($_reviews['settings']['enable_review_date'] == "1"):?>
+						<small class="date"> on <?php echo $review['review_created_at'] ?></small>
+					<?php endif; ?>
+
+				</div>
+			
+				<div class="review-body">
+	
+					<?php if($review['product_image']):?>
+						<?php echo $review['product_image'] ?>
+					<?php endif; ?>
+	
+	                <p><?php echo $review['review_detail'] ?></p>
+                
+					<?php if($review['product_image']):?>
+						<div class="clear"></div>
+					<?php endif; ?>
+
+	            </div>
+			
+			</td>
+	
+		<?php if($i+1 % $numberOfColumns == 0):?>
+			</tr>
+		<?php endif; ?>
+	
+		<?php $i++; ?>
+	<?php endforeach; ?>
+	</table>
+	
+	<?php if($_reviews['settings']['enable_rich_snippet'] == "1"):?>
+	<div text-align="center" class="rich-snippet-markup" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="itemreviewed"><?php echo Mage::getStoreConfig('general/store_information/name')?></span> <span itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">is ranked <span itemprop="average"><?php echo $_reviews['totals']['total_of_five']; ?></span> out of <span itemprop="best">5</span></span>. Based on <span itemprop="count"><?php echo $_reviews['totals']['total_reviews']; ?></span> user reviews.</div>
+		<?php endif; ?><?php if($_reviews['settings']['enable_module_credit'] == "1"):?><?php echo $this->getModuleCredit(); ?>
+	<?php endif; ?>
+</div>

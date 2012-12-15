@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<EkoInternetMarketing_AllReviews>
+			<active>true</active>
+			<codePool>community</codePool>
+		</EkoInternetMarketing_AllReviews>
+	</modules>
+</config>

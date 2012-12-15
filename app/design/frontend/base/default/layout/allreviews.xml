@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+	<layout version="0.1.0">
+		<default>
+	        <reference name="head">
+	            <action method="addItem"><type>skin_css</type><name>ekoim/allreviews/allreviews.css</name><params/></action>
+	        </reference>
+		</default>
+		
+		<allreviews_index_index>
+			<reference name="root">
+				<action method="setTemplate"><template>page/1column.phtml</template></action>
+       	 	</reference>
+			<reference name="content">
+            	<block type="allreviews/allreviews" name="all_reviews" template="allreviews/reviews.phtml"/>
+        	</reference>
+		</allreviews_index_index>
+
+	</layout>

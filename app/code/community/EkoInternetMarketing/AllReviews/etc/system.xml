@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <ekoim translate="label">
+            <label>Eko Internet Marketing</label>
+            <sort_order>150</sort_order>
+        </ekoim>
+    </tabs>
+    <sections>
+        <ekoim translate="label">
+            <label>All Reviews</label>
+            <tab>ekoim</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <allreviews translate="label comment">
+                    <label>General</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[<p><strong>To use this module, create a CMS page and paste the following snippet into the content area:</strong></p><p>{{block type="allreviews/allreviews" name="all_reviews"  template="allreviews/reviews.phtml"}}<br />&nbsp;</p><p><strong>Interested in increasing traffic to your store?</strong> That's what we specialize in. Visit us at <a href="http://www.ekoim.com/?utm_source=Magento%2BModule&utm_medium=module&utm_campaign=All%2BReviews" target="_blank">http://www.ekoim.com</a> for more information on how we can help you grow your business.<br />&nbsp;</p> ]]></comment>
+                    <fields>
+                        <number_of_reviews translate="label comment">
+                            <label>Number of Reviews</label>
+                            <comment>The total number of reviews you want to show. Default is 10.</comment>
+							<validate>validate-number</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number_of_reviews>
+                        <number_of_columns translate="label comment">
+                            <label>Number of Columns</label>
+                            <comment>The number of columns you want to show</comment>
+							<validate>validate-number</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number_of_columns> 
+                       <enable_totals translate="label comment">
+                            <label>Display Total Reviews with Stars</label>
+                            <comment>Show the total ratings with stars</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_totals>
+                       <enable_review_stars translate="label comment">
+                            <label>Display Stars</label>
+                            <comment>Show the star ratings for each review?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_review_stars>
+                        <enable_review_date translate="label comment">
+                            <label>Display Review Date</label>
+                            <comment>Show the date of the review?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_review_date>
+                        <enable_review_title translate="label comment">
+                            <label>Display Review Title</label>
+                            <comment>Show the title of the review</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_review_title>
+                        <enable_review_nickname translate="label comment">
+                            <label>Display Reviewer Username</label>
+                            <comment>Show the username of the reviewer</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_review_nickname>
+                        <enable_product_image translate="label comment">
+                            <label>Display Product Image</label>
+                            <comment>Show the product image?</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_product_image>
+                        <enable_rich_snippet translate="label comment">
+                            <label>Enable Rich Snippet?</label>
+                            <comment>Enable the rich snippet to show star ratings in Google Organic search results</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_rich_snippet>
+                        <enable_module_credit translate="label comment">
+                            <label>Enable Module Credit Link?</label>
+                            <comment>Enable the link back to the module creator's website</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_module_credit>
+                    </fields>
+                </allreviews>
+            </groups>
+        </ekoim>
+    </sections>
+</config>
